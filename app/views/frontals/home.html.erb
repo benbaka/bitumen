@@ -1,0 +1,17 @@
+<h1>Log In</h1>
+<% flash.each do |message_type, message| %>
+   Error - <%=message %>
+    <%end%>
+<div class="row">
+  <%= form_for(:frontal, url:frontals_login_path) do |f|%>
+
+  <%= f.label :username %>
+      <%= f.text_field :username %>
+      <br/>
+      <%= f.label :password%>
+      <%= f.password_field :password %>
+
+      <br/>
+      <%= f.submit "Log in" %>
+    <%end%>
+</div>
