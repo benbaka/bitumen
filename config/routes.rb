@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   get 'frontals/home'
 
+  get 'signup' => 'users#new', as: :signup
 
   delete 'frontals/logout'
 
