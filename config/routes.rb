@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'categories/new'
+
+  get 'categories/create'
+
+  get 'categories/destroy'
+
+  get 'categories/edit'
+
+  get 'categories/index'
+
+  get 'categories/show'
+
   get 'frontals/landing_page'
 
   post 'frontals/login'
