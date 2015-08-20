@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'categories/new'
 
+  get 'categories' => 'categories#index', as: :categories
+
   post 'categories/create'
 
   get 'categories/destroy'
