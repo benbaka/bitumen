@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get 'categories/index'
 
-  get 'categories/show'
+  get 'categories/:id' => 'categories#show', as: :category
 
   get 'frontals/landing_page'
 
