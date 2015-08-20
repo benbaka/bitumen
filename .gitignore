@@ -15,5 +15,7 @@
 /log/*
 !/log/.keep
 /tmp
-.idea/workspace.xml
-.idea/runConfigurations/
+/.idea/workspace.xml
+/.idea/runConfigurations/
+/.idea/vcs.xml
+/.idea/*
