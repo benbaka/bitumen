@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'categories/new'
 
-  get 'categories/create'
+  post 'categories/create'
 
   get 'categories/destroy'
 
