@@ -28,6 +28,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    set_category
   end
 
   private
