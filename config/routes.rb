@@ -3,9 +3,7 @@ Rails.application.routes.draw do
 
   get 'categories' => 'categories#index', as: :categories
 
-  post 'categories/create'
-
-  get 'categories/destroy'
+  post 'categories' => 'categories#create'
 
   get 'categories/:id/edit' => 'categories#edit', as: :edit_category
 
