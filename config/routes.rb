@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'categories/:id/edit' => 'categories#edit', as: :edit_category
 
   get 'categories/:id' => 'categories#show', as: :category
-  put 'categories/:id' => 'categories#update'
+  patch 'categories/:id' => 'categories#update'
 
   get 'categories/index'
 
