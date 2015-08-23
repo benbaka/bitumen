@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get 'categories/:id' => 'categories#show', as: :category
   patch 'categories/:id' => 'categories#update'
+  delete 'categories/:id' => 'categories#destroy'
 
   get 'categories/index'
 
