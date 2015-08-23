@@ -19,7 +19,9 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(@params[:id])
+    @category = Category.find(params[:id])
+    @category.destroy
+
     respond_to do |format|
       format.html {redirect_to categories_url, notice: 'Blog was successfull deleted'}
     end
@@ -42,6 +44,7 @@ class CategoriesController < ApplicationController
   end
 
   def index
+    @categories = Category.all
   end
 
   def show
