@@ -21,6 +21,17 @@ class CategoriesController < ApplicationController
   def destroy
   end
 
+  def update
+    respond_to do |format|
+      @category = Category.find(params[:id])
+      if @category.update(category_params)
+        format.html {redirect_to @category, notice: 'Category was successfully updated.'}
+      else
+        format.html {render :edit }
+      end
+    end
+  end
+
   def edit
     @category = Category.find(params[:id])
   end
