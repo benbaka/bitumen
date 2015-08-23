@@ -1,2 +1,23 @@
-<h1>Categories#edit</h1>
-<p>Find me in app/views/categories/edit.html.erb</p>
+<h1>Editing Category</h1>
+
+<%= form_for(@category) do |f| %>
+    <% if @category.errors.any? %>
+        <div id="error_explanation">
+        <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved: </h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+      </div>
+<% end %>
+
+<div class="field">
+  <%= f.label :name %>:
+  <%= f.text_field :name %><br/>
+</div>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+<%end %>
