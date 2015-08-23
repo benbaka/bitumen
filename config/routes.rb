@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'categories/destroy'
 
-  get 'categories/edit'
+  get 'categories/:id/edit' => 'categories#edit', as: :edit_category
 
   get 'categories/index'
 
