@@ -27,6 +27,16 @@
     <%= f.label :date_of_creation %><br>
     <%= f.datetime_select :date_of_creation %>
   </div>
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.select (:category_id) do %>
+        <% if @blog.new_record? %>
+            <%= options_from_collection_for_select(@categories, :id, :name) %>
+        <%else%>
+            <%= options_from_collection_for_select(@categories, :id, :name, @blog.category.id) %>
+        <%end%>
+        <%end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
