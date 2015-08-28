@@ -15,10 +15,12 @@ class BlogsController < ApplicationController
   # GET /blogs/new
   def new
     @blog = Blog.new
+    @categories = Category.all
   end
 
   # GET /blogs/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /blogs
@@ -70,6 +72,6 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :summary, :body, :date_of_creation)
+      params.require(:blog).permit(:title, :summary, :body, :date_of_creation, :category_id)
     end
 end
