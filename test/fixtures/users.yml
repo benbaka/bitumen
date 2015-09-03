@@ -9,3 +9,13 @@ two:
   username: MyString
   password: MyString
   email_address: MyString
+
+ben:
+  username: ben
+  password: password
+  email_address: email@email.com
+
+admin:
+  username: admin
+  password: admin
+  email_address: admin@admin.com
