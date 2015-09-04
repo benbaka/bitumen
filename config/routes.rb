@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :ratings
+
   get 'categories/new' => 'categories#new', as: :new_category
 
   get 'categories' => 'categories#index', as: :categories
