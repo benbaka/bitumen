@@ -1,0 +1,34 @@
+require 'test_helper'
+
+class RatingTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
+
+  test "should create associate a blog with many ratings" do
+    blog = Blog.new({:title=>"the me blog"})
+    assert_empty blog.ratings
+
+    rating1 = ratings(:one)
+    rating2 = ratings(:two)
+    blog.ratings << rating1
+    blog.ratings << rating2
+    blog.save
+
+    assert_equal blog.ratings.size, 2
+
+    user1 = users(:ben)
+    user2 = users(:admin)
+    rating1.user = user1
+    rating1.save
+
+    assert_not_nil rating1.user
+
+    assert_not_nil user1.ratings
+
+  end
+
+
+end
+
+
