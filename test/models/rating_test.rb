@@ -28,7 +28,28 @@ class RatingTest < ActiveSupport::TestCase
 
   end
 
+  test "should not store a rating by a user more than twice" do
+    Rating.delete_all
+    blog = Blog.new({:title=>"the me blog"})
+    blog.save
 
+    user = User.new({:username=>"ben"})
+    user.save
+
+    rating = Rating.new({:user_id=>user.id})
+    blog.ratings << rating
+    assert blog.save
+    assert_empty blog.errors
+    assert_equal 1, blog.ratings.size
+
+    # Now test unsuccessfull rating of a blog by same person twice
+
+    assert_equal false, blog.ratings << rating
+    assert_equal 1, blog.ratings.size
+    assert_equal 1, Rating.all.size
+
+
+  end
 end
 
 
