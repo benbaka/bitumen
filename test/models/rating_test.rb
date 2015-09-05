@@ -50,6 +50,15 @@ class RatingTest < ActiveSupport::TestCase
 
 
   end
+
+  test "should simply save a rating" do
+    rating = Rating.new()
+    assert_raise Exception do
+      rating.save
+    end
+    assert 2, rating.errors.size
+    
+  end
 end
 
 
