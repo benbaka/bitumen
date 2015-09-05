@@ -75,7 +75,7 @@ class RatingTest < ActiveSupport::TestCase
 
 
 
-  test "should simply save a rating" do
+  test "should produce error on saving a new rating" do
     rating = Rating.new()
     assert_raise Exception do
       rating.save
