@@ -3,7 +3,6 @@ class Rating < ActiveRecord::Base
   belongs_to :user
 
   validates_presence_of :blog, :user
-  #validate :check_if_user_has_already_rated_blog
   before_validation :check_if_user_has_already_rated_blog, on: :create
 
 
