@@ -10,6 +10,7 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    @rating = get_rating
   end
 
   # GET /blogs/new
@@ -27,6 +28,8 @@ class BlogsController < ApplicationController
   # POST /blogs.json
   def create
     @blog = Blog.new(blog_params)
+    @blog.user_id = current_user.id
+
 
 
     respond_to do |format|
@@ -43,6 +46,7 @@ class BlogsController < ApplicationController
   # PATCH/PUT /blogs/1
   # PATCH/PUT /blogs/1.json
   def update
+    @blog.user_id = current_user.id
     respond_to do |format|
       if @blog.update(blog_params)
         format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
@@ -68,6 +72,13 @@ class BlogsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
       @blog = Blog.find(params[:id])
+    end
+
+    def get_rating
+      blog = set_blog
+      Rating.find_or_create_by({:user_id => current_user.id,
+                               :blog_id => blog.id})
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
