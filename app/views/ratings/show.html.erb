@@ -2,12 +2,17 @@
 
 <p>
   <strong>Blog:</strong>
-  <%= @rating.blog_id %>
+  <%= @rating.blog.title %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @rating.user_id %>
+  <%= @rating.user.username %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @rating.value %>
 </p>
 
 <%= link_to 'Edit', edit_rating_path(@rating) %> |
