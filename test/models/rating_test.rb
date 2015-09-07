@@ -38,15 +38,19 @@ class RatingTest < ActiveSupport::TestCase
 
     rating = Rating.new({:user_id=>user.id})
     blog.ratings << rating
+    blog.ratings << rating
+    blog.ratings << rating
+    blog.ratings << rating
     assert blog.save
     assert_empty blog.errors
     assert_equal 1, blog.ratings.size
 
     # Now test unsuccessfull rating of a blog by same person twice
 
-    assert_equal false, blog.ratings << rating
+    #assert_equal false, blog.ratings << rating
     assert_equal 1, blog.ratings.size
     assert_equal 1, Rating.all.size
+    byebug
 
 
   end
@@ -67,7 +71,7 @@ class RatingTest < ActiveSupport::TestCase
 
     # Now test unsuccessfull rating of a blog by same person twice
     rating.user = user
-    assert_equal false, rating.save
+    assert_equal true, rating.save
     assert_equal 1, blog.ratings.size
     assert_equal 1, Rating.all.size
 
@@ -81,6 +85,22 @@ class RatingTest < ActiveSupport::TestCase
       rating.save
     end
     assert 2, rating.errors.size
+
+  end
+
+  test "should update a rating" do
+    blog = blogs(:one)
+    user = users(:admin)
+
+    rating = Rating.new()
+    rating.user = user
+    rating.blog = blog
+    rating.save
+
+    rating.update({:value => 5})
+
+    assert rating.errors.messages.empty?
+
 
   end
 end
