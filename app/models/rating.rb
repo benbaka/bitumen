@@ -3,13 +3,16 @@ class Rating < ActiveRecord::Base
   belongs_to :user
 
   validates_presence_of :blog, :user
-  validate :check_if_user_has_already_rated_blog
+  #validate :check_if_user_has_already_rated_blog
+  before_validation :check_if_user_has_already_rated_blog, on: :create
 
+
+  protected
   def check_if_user_has_already_rated_blog
     user = User.find(self.user.id)
 
     if self.blog != nil
-      if self.blog.ratings.find_by_user_id(self.user.id) != nil
+      if self.blog.ratings.where({:user_id => self.user.id}).size >= 1
 
         errors.add(:user_id, "User has already rated blog")
       end
