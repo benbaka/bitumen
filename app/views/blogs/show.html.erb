@@ -29,17 +29,17 @@
 <%= link_to 'Back', blogs_path %>
 
 
-<h3>Rate Blog</h3>
+<% if @blog.user != current_user %>
+     <h3>Rate Blog</h3>
+    <%= form_for(@rating) do |f|  %>
 
-<%= form_for(@rating) do |f|  %>
-
-    <div class="field">
-      <%= f.label :rating %><br/>
-      <%= f.text_field :value %>
-    </div>
-<div class="actions">
-  <%= f.submit %>
-</div>
-
+        <div class="field">
+          <%= f.label :rating %><br/>
+          <%= f.text_field :value %>
+        </div>
+        <div class="actions">
+    <%= f.submit %>
+        </div>
+    <% end %>
 <% end %>
 
