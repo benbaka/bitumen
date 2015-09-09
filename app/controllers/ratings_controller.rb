@@ -4,6 +4,7 @@ class RatingsController < ApplicationController
   # GET /ratings
   # GET /ratings.json
   def index
+    byebug
     @ratings = Rating.all
   end
 
@@ -41,12 +42,19 @@ class RatingsController < ApplicationController
   # PATCH/PUT /ratings/1.json
   def update
     respond_to do |format|
-      if @rating.update(rating_params)
-        format.html { redirect_to @rating, notice: 'Rating was successfully updated.' }
-        format.json { render :show, status: :ok, location: @rating }
-      else
-        format.html { render :edit }
+      if not( @rating.blog.id != rating_params[:blog_id] and @rating.user.id != rating_params[:user_id])
+        @rating.errors.add("blog_id", "should not be changed")
+        @rating.errors.add("user_id", "should not be changed")
+        format.html { render :edit, notice: "You can not edit the Blog or User ids"}
         format.json { render json: @rating.errors, status: :unprocessable_entity }
+      else
+        if @rating.update(rating_params)
+          format.html { redirect_to @rating.blog, notice: 'Rating was successfully updated.' }
+          format.json { render :show, status: :ok, location: @rating }
+        else
+          format.html { render :edit }
+          format.json { render json: @rating.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
