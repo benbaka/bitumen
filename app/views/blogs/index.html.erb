@@ -9,7 +9,8 @@
       <th>Summary</th>
       <th>Body</th>
       <th>Date of creation</th>
-      <th colspan="3"></th>
+      <th>Comments</th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -20,9 +21,11 @@
         <td><%= blog.summary %></td>
         <td><%= blog.body %></td>
         <td><%= blog.date_of_creation %></td>
+        <td><%= blog.comments.size %></td>
         <td><%= link_to 'Show', blog %></td>
         <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
         <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Comment', new_blog_comment_path(blog) %></td>
       </tr>
     <% end %>
   </tbody>
