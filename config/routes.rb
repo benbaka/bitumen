@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :comments
 
   resources :ratings
+
+  #post 'bloggings/:blog_id/commentings/:id' => 'comments#dothedo', as: :duck
 
   get 'categories/new' => 'categories#new', as: :new_category
 
@@ -32,7 +33,9 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :blogs
+  resources :blogs do
+    resources :comments
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
