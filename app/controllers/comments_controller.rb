@@ -30,8 +30,7 @@ class CommentsController < ApplicationController
     blog = Blog.find(params[:blog_id])
 
     respond_to do |format|
-      if @comment.save
-        blog.comments << @comment
+      if blog.comments << @comment
         format.html { redirect_to @comment.blog, notice: 'Thank you for your comment' }
         format.json { render :show, status: :created, location: @comment }
       else
