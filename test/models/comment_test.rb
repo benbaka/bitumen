@@ -24,4 +24,21 @@ class CommentTest < ActiveSupport::TestCase
     assert_not_empty blog.comments
     assert_equal 2, Comment.where(:user_id => user.id).size
   end
+
+  test "should not allow a user to comment on his own blog" do
+    blog = blogs(:one)
+    user = users(:one)
+    blog.user = user
+    blog.save
+
+    comment = comments(:one)
+    comment.user = user
+    comment.save
+
+    blog.comments << comment
+    blog.save
+    #byebug
+    assert_not_empty comment.errors
+    assert_equal(comment.errors.first, [:user_id, "You can not comment on your own blog."])
+  end
 end
