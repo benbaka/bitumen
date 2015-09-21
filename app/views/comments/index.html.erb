@@ -16,9 +16,9 @@
       <tr>
         <td><%= comment.user_id %></td>
         <td><%= comment.body %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', blog_comments_path %></td>
+        <td><%= link_to 'Edit', edit_blog_comment_path(comment.blog,comment) %></td>
+        <td><%= link_to 'Destroy', blog_comment_path(comment.blog, comment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Comment', new_comment_path %>
+<%= link_to 'New Comment', new_blog_comment_path %>
