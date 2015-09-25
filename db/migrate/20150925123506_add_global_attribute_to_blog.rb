@@ -4,6 +4,6 @@ class AddGlobalAttributeToBlog < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :blogs, global 
+    remove_column :blogs, global
   end
 end
