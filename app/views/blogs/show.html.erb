@@ -25,6 +25,14 @@
   <%= @blog.date_of_creation %>
 </p>
 
+<p>
+  <% if @blog.global %>
+      <strong>This blog can be viewed by all</strong>
+  <% else %>
+      Only you can see this blog
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
 <%= link_to 'Back', blogs_path %>
 
