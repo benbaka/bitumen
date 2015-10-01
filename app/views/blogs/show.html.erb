@@ -33,13 +33,17 @@
   <% end %>
 </p>
 
+<div id="blog_ratings_count" >
+    <%= render 'blog_ratings_count' %>
+</div>
+
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
 <%= link_to 'Back', blogs_path %>
 
 
 <% if @blog.user != current_user %>
      <h3>Rate Blog</h3>
-    <%= form_for(@rating) do |f|  %>
+    <%= form_for(@rating, remote: true) do |f|  %>
 
         <div class="field">
           <%= f.label :rating %><br/>
