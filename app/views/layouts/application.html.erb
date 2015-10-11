@@ -10,20 +10,25 @@
 <nav role="navigation" class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse"
+              data-target="#content-nav">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
       <a class="navbar-brand" href="#">The Blog way</a>
     </div>
-  <div>
+  <div class="collapse navbar-collapse" id="content-nav">
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
       <li><a href="#">Page 1</a></li>
       <li><a href="#">Page 2</a></li>
       <li><a href="#">Page 3</a></li>
     </ul>
-    </div>
-    <div>
     <ul class="nav navbar-nav navbar-right">
       <% if logged_in? %>
-          <li><p class="navbar-text ">
+          <li><p class="navbar-text">
             Welcome, <%= current_user.username.capitalize %>
           </p></li>
           <li>
