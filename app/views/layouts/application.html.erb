@@ -22,7 +22,15 @@
     </div>
     <div>
     <ul class="nav navbar-nav navbar-right">
-     
+      <% if logged_in? %>
+          <li><p class="navbar-text ">
+            Welcome, <%= current_user.username.capitalize %>
+          </p></li>
+          <li>
+            <%= link_to "Log out", frontals_logout_path, method: :delete %>
+          </li>
+      <% end %>
+
     </ul>
   </div>
 
