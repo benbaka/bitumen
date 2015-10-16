@@ -1,8 +1,9 @@
 <h1>Log In</h1>
-<div id="error_explanation">
+<div>
 <% flash.each do |message_type, message| %>
-   Error - <%=message %>
-    <%end%>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
+</div>
 <div class="row">
   <div class="col-md-4">
     <div class="panel panel-default">
