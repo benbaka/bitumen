@@ -1,17 +1,28 @@
 <h1>Log In</h1>
+<div id="error_explanation">
 <% flash.each do |message_type, message| %>
    Error - <%=message %>
     <%end%>
 <div class="row">
-  <%= form_for(:frontal, url:frontals_login_path) do |f|%>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3 class="panel-title"><strong>Sign In </strong></h3></div>
+      <div class="panel-body">
 
-  <%= f.label :username %>
-      <%= f.text_field :username %>
-      <br/>
-      <%= f.label :password%>
-      <%= f.password_field :password %>
+        <%= form_for(:frontal, url: frontals_login_path) do |f| %>
+            <div class="form-group">
+              <%= f.label :username, "Username or Email" %>
+              <%= f.text_field :username, class: 'form-control', placeholder: "Enter email" %>
+            </div>
 
-      <br/>
-      <%= f.submit "Log in" %>
-    <%end%>
+            <div class="form-group">
+              <%= f.label :password, "Password" %>
+              <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
+            </div>
+            <br/>
+            <%= f.submit "Log in", class: 'btn btn-sm btn-default' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
