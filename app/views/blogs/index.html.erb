@@ -2,35 +2,31 @@
 
 <h1>Listing Blogs</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Summary</th>
-      <th>Body</th>
-      <th>Date of creation</th>
-      <th>Comments</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @blogs.each do |blog| %>
-      <tr>
-        <td><%= blog.title %></td>
-        <td><%= blog.summary %></td>
-        <td><%= blog.body %></td>
-        <td><%= blog.date_of_creation %></td>
-        <td><%= blog.comments.size %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Comment', new_blog_comment_path(blog) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class="panel">
+  <div class="panel-body">
+    <!-- blog entries -->
+    <div class="row">
+      <br/>
+      <% @blogs.each do |blog| %>
+        <div class="col-md-2 col-sm-3 text-center">
+            <a href="#" class="story-img"><img class="img-circle" style="width:100px;height:100px" src="//placehold.it/100"></a>
+        </div>
+        <div class="col-md-10 col-sm-9">
+            <h3><%= blog.title %> </h3>
+            <div class="row">
+              <div class="cols-xs-9">
+                <p><%= blog.body %></p>
+                <p class="lead"><button class="btn btn-default">Read More</button></p>
+                <p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
+                <ul class="list-inline"><li><a href="#">2 Days Ago</a></li><li><a href="#"><i class="glyphicon glyphicon-comment"></i> 4 Comments</a></li><li><a href="#"><i class="glyphicon glyphicon-share"></i> 34 Shares</a></li></ul>
+              </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  </div>
+  
 <br>
 
 <%= link_to 'New Blog', new_blog_path %>
