@@ -1,34 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <% if @blog.global %>
-      <strong>This blog can be viewed by all</strong>
-  <% else %>
-      Only you can see this blog
-  <% end %>
-</p>
-
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
-
-
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="page-header">
+<% content_for :blog_header do %>
         <h1><%= @blog.title %></h1>
         <p>Posted by <span class="glyphicon glyphicon-user"></span> <a href="#"><%= @blog.user.username %></a> on <span class="glyphicon glyphicon-time"></span> <%= @blog.created_at %>. Category <span class="glyphicon glyphicon-info-sign"></span><%= @blog.category.name %></p>
-      </div>
-    </div>
-  </div>
+<% end %>
 
-
-  <!-- /.row -->
-
-  <div class="row">
-    <div class="col-sm-8">
 
       <!-- Image -->
       <figure class="margin-b-2">
