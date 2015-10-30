@@ -73,7 +73,7 @@
 
       <!-- Image -->
       <figure class="margin-b-2">
-        <img alt="" src="http://placehold.it/900x400" class="img-responsive">
+        <img alt="" src="https://placeimg.com/900/400/nature" class="img-responsive">
       </figure>
 
       <p class="lead"><%= @blog.summary %></p>
@@ -82,15 +82,16 @@
 
       <!-- Comments -->
       <h3>Comments</h3>
+      <% @blog.comments.each do |comment| %>
       <div class="well">
         <div class="media">
           <div class="media-left">
-            <img alt="" src="http://placehold.it/70x70">
+            <img alt="" src="https://placeimg.com/100/100/people">
           </div>
           <div class="media-body">
-            <h4 class="margin-t-0"><a href="#">Mayahuel Rodriguez</a></h4>
-            <p><a href="#">12 January 2015 11:13 pm</a></p>
-            <p>Lorem ipsum dolor sit amet consect etuer adipi scing elit sed diam nonummy nibh euismod tinunt ut laoreet dolore magna aliquam erat volut</p>
+            <h4 class="margin-t-0"><a href="#"><%= comment.user.username %></a></h4>
+            <p><a href="#"><%= comment.created_at %></a></p>
+            <p><%= comment.body%></p>
             <p>
               <button class="btn btn-sm btn-default">
                 <span class="glyphicon glyphicon-thumbs-up"></span> Upvote
@@ -105,55 +106,9 @@
           </div>
         </div>
       </div>
+          <hr>
+    <% end %>
 
-      <div class="well">
-        <div class="media">
-          <div class="media-left">
-            <img alt="" src="http://placehold.it/70x70">
-          </div>
-          <div class="media-body">
-            <h4 class="margin-t-0"><a href="#">Mayahuel Rodriguez</a></h4>
-            <p><a href="#">12 January 2015 11:13 pm</a></p>
-            <p>Lorem ipsum dolor sit amet consect etuer adipi scing elit sed diam nonummy nibh euismod tinunt ut laoreet dolore magna aliquam erat volut</p>
-            <p>
-              <button class="btn btn-sm btn-default">
-                <span class="glyphicon glyphicon-thumbs-up"></span> Upvote
-              </button>
-              <button class="btn btn-sm btn-default">
-                <span class="glyphicon glyphicon-thumbs-down"></span> Downvote
-              </button>
-              <button class="btn btn-sm btn-default">
-                <span class="glyphicon glyphicon-comment"></span> Reply
-              </button>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="well">
-        <div class="media">
-          <div class="media-left">
-            <img alt="" src="http://placehold.it/70x70">
-          </div>
-          <div class="media-body">
-            <h4 class="margin-t-0"><a href="#">Mayahuel Rodriguez</a></h4>
-            <p><a href="#">12 January 2015 11:13 pm</a></p>
-            <p>Lorem ipsum dolor sit amet consect etuer adipi scing elit sed diam nonummy nibh euismod tinunt ut laoreet dolore magna aliquam erat volut</p>
-            <p>
-              <button class="btn btn-sm btn-default">
-                <span class="glyphicon glyphicon-thumbs-up"></span> Upvote
-              </button>
-              <button class="btn btn-sm btn-default">
-                <span class="glyphicon glyphicon-thumbs-down"></span> Downvote
-              </button>
-              <button class="btn btn-sm btn-default">
-                <span class="glyphicon glyphicon-comment"></span> Reply
-              </button>
-            </p>
-          </div>
-        </div>
-      </div>
-      <hr>
 
       <!-- Comment form -->
       <h3>Leave a comment</h3>
