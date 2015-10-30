@@ -2,5 +2,63 @@
 
 
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-header">
+        <p id="notice"><%= notice %></p>
+
+        <p>
+          <% if @blog.global %>
+              <strong>This blog can be viewed by all</strong>
+          <% else %>
+              Only you can see this blog
+          <% end %>
+        </p>
+
+
+        <%= link_to 'Edit', edit_blog_path(@blog) %> |
+        <%= link_to 'Back', blogs_path %>
+
+        <%= yield :blog_header %> <!--replaceable block for page header -->
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- /.row -->
+
+  <div class="row">
+    <div class="col-sm-8">
+      <%= yield :blog_main %> <!-- replaceable block for blog main page -->
+
+      <hr>
+      <!-- Pager -->
+      <nav>
+        <ul class="pager">
+          <li class="previous"><a href="#"><span aria-hidden="true" class="glyphicon glyphicon-menu-left"></span> Older</a></li>
+          <li class="next"><a href="#">Newer <span aria-hidden="true" class="glyphicon glyphicon-menu-right"></span></a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+
+    <div class="col-sm-4">
+      <!-- Search -->
+      <%= yield :right_side_bar %> <!-- replaceable block for blog side bar -->
+    </div>
+
+    <hr>
+    <footer class="margin-tb-3">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright &copy; Sitename 2015</p>
+        </div>
+      </div>
+    </footer>
+
+
 
 <%= render template: "layouts/application" %>
