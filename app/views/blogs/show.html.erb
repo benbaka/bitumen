@@ -1,5 +1,18 @@
 <% content_for :blog_header do %>
-        <h1><%= @blog.title %></h1>
+
+    <p>
+      <% if @blog.global %>
+          <strong>This blog can be viewed by all</strong>
+      <% else %>
+          Only you can see this blog
+      <% end %>
+    </p>
+
+
+    <%= link_to 'Edit', edit_blog_path(@blog) %> |
+    <%= link_to 'Back', blogs_path %>
+
+    <h1><%= @blog.title %></h1>
         <p>Posted by <span class="glyphicon glyphicon-user"></span> <a href="#"><%= @blog.user.username %></a> on <span class="glyphicon glyphicon-time"></span> <%= @blog.created_at %>. Category <span class="glyphicon glyphicon-info-sign"></span><%= @blog.category.name %></p>
 <% end %>
 
@@ -87,8 +100,18 @@
           <button class="btn btn-default" type="submit">Submit</button>
         </form>
       </div>
-      <hr>
-    <% end %>
+
+    <hr>
+    <!-- Pager -->
+    <nav>
+      <ul class="pager">
+        <li class="previous"><a href="#"><span aria-hidden="true" class="glyphicon glyphicon-menu-left"></span> Older</a></li>
+        <li class="next"><a href="#">Newer <span aria-hidden="true" class="glyphicon glyphicon-menu-right"></span></a></li>
+      </ul>
+    </nav>
+
+
+<% end %>
 
     <% content_for :right_side_bar do %>
       <!-- Search -->
