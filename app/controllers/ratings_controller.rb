@@ -4,7 +4,6 @@ class RatingsController < ApplicationController
   # GET /ratings
   # GET /ratings.json
   def index
-    byebug
     @ratings = Rating.all
   end
 
