@@ -12,6 +12,9 @@ class BlogsController < ApplicationController
   # GET /blogs/1.json
   def show
     @rating = get_rating
+
+    # Attributes required for creating new comments for a blog post
+    @comment = Comment.new
   end
 
   # GET /blogs/new
