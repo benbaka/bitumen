@@ -20,7 +20,7 @@
 <% content_for :blog_main do %>
       <!-- Image -->
       <figure class="margin-b-2">
-        <img alt="" src="https://placeimg.com/900/400/nature" class="img-responsive">
+        <%= image_tag('nature-1.jpg', size: '900x400', class: 'img-responsive') %>
       </figure>
 
       <p class="lead"><%= @blog.summary %></p>
