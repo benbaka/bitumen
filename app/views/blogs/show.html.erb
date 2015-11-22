@@ -94,12 +94,8 @@
     <% end %>
       <div class="well">
           <%= form_for [@blog,@comment] do |f| %>
-          <div class="form-group">
-            <label for="contactComment">Comment</label>
-            <textarea id="contactComment" class="form-control"></textarea>
-          </div>
           <div class="field">
-            <%= f.label :body %><br>
+            <%= f.label "Comment" %><br>
             <%= f.text_area :body, class: 'form-control' %>
           </div>
           <div class="form-group">
