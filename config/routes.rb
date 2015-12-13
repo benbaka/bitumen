@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  root 'blogs#index'
+
+
   resources :ratings
 
   #post 'bloggings/:blog_id/commentings/:id' => 'comments#dothedo', as: :duck
