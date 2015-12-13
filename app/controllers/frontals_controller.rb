@@ -9,7 +9,7 @@ class FrontalsController < ApplicationController
     if user
       log_in user
       flash[:success] = "Welcome to the Sample App!"
-      redirect_to users_path
+      redirect_to blogs_path
 
     else
       flash[:danger] = "Invalid email/password combination"
@@ -24,7 +24,7 @@ class FrontalsController < ApplicationController
 
   def home
     if logged_in?
-      redirect_to users_path
+      redirect_to blogs_path
     end
   end
 end
