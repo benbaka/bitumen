@@ -8,10 +8,6 @@
       <% end %>
     </p>
 
-
-    <%= link_to 'Edit', edit_blog_path(@blog) %> |
-    <%= link_to 'Back', blogs_path %>
-
     <h1><%= @blog.title %></h1>
         <p>Posted by <span class="glyphicon glyphicon-user"></span> <a href="#"><%= @blog.user.username %></a> on <span class="glyphicon glyphicon-time"></span> <%= @blog.created_at %>. Category <span class="glyphicon glyphicon-info-sign"></span><%= @blog.category.name %></p>
 <% end %>
@@ -27,7 +23,12 @@
       <p><%= @blog.body %></p>
 
 
-      <div id="blog_ratings_count" >
+
+      <%= link_to 'Edit', edit_blog_path(@blog) %> |
+      <%= link_to 'Back', blogs_path %>
+
+
+    <div id="blog_ratings_count" >
         <%= render 'blog_ratings_count' %>
       </div>
       <% if @blog.user != current_user %>
