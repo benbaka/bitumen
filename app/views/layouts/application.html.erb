@@ -22,9 +22,10 @@
   <div class="collapse navbar-collapse" id="content-nav">
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
+      <% if logged_in? %>
+          <li><%= link_to "Blog", blogs_path %><</li>
+          <li><%= link_to "Categories", categories_path %></li>
+      <% end %>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <% if logged_in? %>
