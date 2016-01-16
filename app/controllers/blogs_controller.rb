@@ -15,6 +15,7 @@ class BlogsController < ApplicationController
 
     # Attributes required for creating new comments for a blog post
     @comment = Comment.new
+    @categories = Category.all
   end
 
   # GET /blogs/new
