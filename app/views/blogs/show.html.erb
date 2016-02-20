@@ -111,6 +111,13 @@
       <div class="well">
         <h4 class="margin-t-0">Search</h4>
         <form action="#">
+          <%= form_tag("", method: "get") do %>
+              <%= label_tag(:q, "Search for:") %>
+              <%= text_field_tag(:search) %>
+              <%= submit_tag("Search") %>
+          <% end %>
+
+
           <div class="input-group">
             <label for="search-form" class="sr-only">Search the site</label>
             <input type="text" id="search-form" class="form-control">
