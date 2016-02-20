@@ -74,6 +74,13 @@ class BlogsController < ApplicationController
     end
   end
 
+  def search
+    @blogs = []
+    Blog.where("title LIKE ?" , "%#{params[:term]}%").each {|elem| @blogs << elem.title }
+    render json: @blogs
+  end
+
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
