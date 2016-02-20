@@ -1,3 +1,4 @@
 1. Add manual elastic search to project
 2. Modify above to handle Ajax with elastic search
 3. Bootstrap-look the blog creation page
+4. On the show category page, list all blogs by title belonging to that category
