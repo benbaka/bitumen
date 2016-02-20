@@ -6,6 +6,8 @@ gem 'rails', '4.2.0'
 
 # Add bootstrap integration.
 gem 'bootstrap-sass',       '3.2.0.0'
+# Add datepicker bootstrap
+gem 'bootstrap-datepicker-rails'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
