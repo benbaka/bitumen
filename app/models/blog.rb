@@ -1,5 +1,6 @@
 class Blog < ActiveRecord::Base
 
+  validates_presence_of :title
   belongs_to :category
   has_many :ratings
   belongs_to :user
