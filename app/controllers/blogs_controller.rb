@@ -42,6 +42,7 @@ class BlogsController < ApplicationController
         format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
         format.json { render :show, status: :created, location: @blog }
       else
+        @categories = Category.all
         format.html { render :new }
         format.json { render json: @blog.errors, status: :unprocessable_entity }
       end
