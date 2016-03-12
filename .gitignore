@@ -13,6 +13,9 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
+# Ignore gem lock file
+Gemfile.lock
+
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
