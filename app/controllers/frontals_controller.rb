@@ -6,6 +6,7 @@ class FrontalsController < ApplicationController
 
   def login
     user = User.find_by(username: params[:frontal][:username])
+    user = user.authenticate(params[:frontal][:password])
     if user
       log_in user
       flash[:success] = "Welcome to the Sample App!"
