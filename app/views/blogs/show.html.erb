@@ -112,28 +112,13 @@
         <h4 class="margin-t-0">Search</h4>
         <form action="#">
           <%= form_tag("", method: "get") do %>
-              <%= label_tag(:q, "Search for:") %>
-              <%= text_field_tag(:search) %>
+              <%= text_field_tag 'search',nil, class: 'form-control' %>
               <%= submit_tag("Search") %>
           <% end %>
 
-
-          <div class="input-group">
-            <label for="search-form" class="sr-only">Search the site</label>
-            <input type="text" id="search-form" class="form-control">
-								<span class="input-group-btn">
-									<button type="button" class="btn btn-default">
-                                      <span class="glyphicon glyphicon-search"></span>
-                                      <span class="sr-only">Search</span>
-                                    </button>
-								</span>
-          </div>
-        </form>
-      </div>
-
       <!-- list group -->
       <div class="panel panel-default">
-        <div class="panel-heading">
+        <div class="panel-heading"  style="background-color: cornflowerblue">
           <h4 class="panel-title">Categories</h4>
         </div>
         <% @categories.each_with_index  do |category, index| %>
@@ -141,7 +126,7 @@
         <% end %>
 
       </div>
-
+      <hr/>
       <!-- Panel -->
       <div class="panel panel-default">
         <div class="panel-heading">
