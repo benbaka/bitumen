@@ -132,9 +132,12 @@
       </div>
 
       <!-- list group -->
-      <div class="list-group margin-b-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">Categories</h4>
+        </div>
         <% @categories.each_with_index  do |category, index| %>
-        <%=link_to category.name.capitalize , category, class: (index == 0) ? "active list-group-item" :  "list-group-item" %>
+        <%=link_to category.name.capitalize , category, class:  "list-group-item" %>
         <% end %>
 
       </div>
