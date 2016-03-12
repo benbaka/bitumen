@@ -5,7 +5,9 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    @current_user_blogs = Blog.where(user: @current_user)
+    @global_blogs = Blog.where(global: true)
+    @blogs = @current_user_blogs + @global_blogs
   end
 
   # GET /blogs/1
