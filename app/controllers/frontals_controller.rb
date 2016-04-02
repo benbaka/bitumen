@@ -6,13 +6,12 @@ class FrontalsController < ApplicationController
 
   def login
     user = User.find_by(username: params[:frontal][:username])
-    user = user.authenticate(params[:frontal][:password])
-    if user
+    begin
+      user = user.authenticate(params[:frontal][:password])
       log_in user
       flash[:success] = "Welcome to the Sample App!"
       redirect_to blogs_path
-
-    else
+    rescue
       flash[:danger] = "Invalid email/password combination"
       render 'home'
     end
