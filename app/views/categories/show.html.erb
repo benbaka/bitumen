@@ -2,6 +2,28 @@
 
 <h3>The <%= @category.name.capitalize %> Category</h3>
 <a href="#">Blogs <span class="badge"><%= @category.blogs.count %></span></a>
+<table class="table table-striped">
+  <thead class="thead-inverse">
+  <tr>
+    <th>Title</th>
+    <th>Owner</th>
+    <th>Created</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @blogs.each do |blog| %>
+      <tr>
+        <th scope="row"><%= blog.title %></th>
+        <td><%= blog.user.username %></td>
+        <td><%= blog.created_at %></td>
+        <td><%= link_to 'Show', blog %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
 
 <br/>
 <%= link_to 'Edit', edit_category_path(@category) %> |
