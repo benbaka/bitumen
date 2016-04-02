@@ -1,6 +1,7 @@
 1. Add manual elastic search to project. [Done]
 2. Modify above to handle Ajax with elastic search
 3. Bootstrap-look the blog creation page [Done]
-4. On the show category page, list all blogs by title belonging to that category
+4. On the show category page, list all blogs by title belonging to that category [Done]
 5. Hash passwords [Done]
 6. Work on side bar [Done]
+7. Show number of blogs in side bar list of categories [Done]
