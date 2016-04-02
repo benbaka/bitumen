@@ -49,6 +49,7 @@ class CategoriesController < ApplicationController
 
   def show
     set_category
+    @blogs = @category.blogs.where(global: true)
   end
 
   private
