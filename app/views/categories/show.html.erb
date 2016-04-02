@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h3>Show Category</h3>
+<h3>The <%= @category.name.capitalize %> Category</h3>
+<a href="#">Blogs <span class="badge"><%= @category.blogs.count %></span></a>
 
-<b>Name: </b> <%= @category.name %>
 <br/>
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
