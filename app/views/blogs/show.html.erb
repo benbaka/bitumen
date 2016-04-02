@@ -115,6 +115,7 @@
               <%= text_field_tag 'search',nil, class: 'form-control' %>
               <%= submit_tag("Search") %>
           <% end %>
+          </form>
 
       <!-- list group -->
       <div class="panel panel-default">
@@ -122,9 +123,10 @@
           <h4 class="panel-title">Categories</h4>
         </div>
         <% @categories.each_with_index  do |category, index| %>
-        <%=link_to category.name.capitalize , category, class:  "list-group-item" %>
-        <% end %>
-
+        <%=link_to  category, :class=>  "list-group-item"  do%>
+               <%= "#{category.name.capitalize}" %> <span class="badge"><%= category.blogs.count %></span>
+        <%end%>
+        <%end%>
       </div>
       <hr/>
       <!-- Panel -->
