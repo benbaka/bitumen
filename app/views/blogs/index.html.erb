@@ -17,7 +17,11 @@
 
         <div class="col-md-10 col-sm-9">
           <div >
-            <a href="#" class="story-img"><%= image_tag('nature-4.jpg') %></a>
+            <% if blog.blog_image.present? %>
+                <%=  image_tag(blog.blog_image.url , size: "900x400", class: 'img-responsive')%>
+            <% else %>
+                <a href="#" class="story-img"><%= image_tag('nature-4.jpg') %></a>
+            <%end%>
           </div>
             <h3><%= blog.title %> </h3>
             <div class="row">

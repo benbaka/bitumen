@@ -16,7 +16,11 @@
 <% content_for :blog_main do %>
       <!-- Image -->
       <figure class="margin-b-2">
-        <%= image_tag('nature-1.jpg', size: '900x400', class: 'img-responsive') %>
+        <% if @blog.blog_image.present? %>
+            <%=  image_tag(@blog.blog_image.url , size: "900x400", class: 'img-responsive')%>
+        <% else %>
+            <a href="#" class="story-img"><%= image_tag('nature-4.jpg') %></a>
+        <%end%>
       </figure>
 
       <p class="lead"><%= @blog.summary %></p>
