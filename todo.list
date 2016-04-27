@@ -6,4 +6,5 @@
 6. Work on side bar [Done]
 7. Show number of blogs in side bar list of categories [Done]
 8. Properly center the index page for blogs [Done]
-9. Allow for upload of blog images and display a default if they don't exist
+9. Allow for upload of blog images and display a default if they don't exist [Done]
+10. When accessing a blog, private blogs should not be viewable by others when they navigate by changing URLS.

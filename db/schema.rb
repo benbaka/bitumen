@@ -11,18 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312134119) do
+ActiveRecord::Schema.define(version: 20160419235235) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title"
     t.string   "summary"
     t.text     "body"
     t.datetime "date_of_creation"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "category_id"
     t.integer  "user_id"
     t.boolean  "global"
+    t.string   "blog_image_file_name"
+    t.string   "blog_image_content_type"
+    t.integer  "blog_image_file_size"
+    t.datetime "blog_image_updated_at"
   end
 
   create_table "categories", force: :cascade do |t|
