@@ -7,7 +7,10 @@ class BlogsController < ApplicationController
   def index
     @current_user_blogs = Blog.where(user: @current_user)
     @global_blogs = Blog.where(global: true)
-    @blogs = @current_user_blogs + @global_blogs
+    @blogs = (@current_user_blogs + @global_blogs).uniq
+
+
+
   end
 
   # GET /blogs/1
@@ -98,6 +101,6 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :summary, :body, :date_of_creation, :category_id, :global)
+      params.require(:blog).permit(:title, :summary, :body, :date_of_creation, :category_id, :global, :blog_image)
     end
 end
