@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
   layout 'blog'
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :check_user_before_action, only:[:show, :edit, :update, :destroy]
 
   # GET /blogs
   # GET /blogs.json
@@ -8,9 +9,6 @@ class BlogsController < ApplicationController
     @current_user_blogs = Blog.where(user: @current_user)
     @global_blogs = Blog.where(global: true)
     @blogs = (@current_user_blogs + @global_blogs).uniq
-
-
-
   end
 
   # GET /blogs/1
@@ -87,6 +85,18 @@ class BlogsController < ApplicationController
 
   
   private
+    # If current use does not own blog then please redirect to home page
+    # with appropriate message.
+    def check_user_before_action
+      @blog = Blog.find(params[:id])
+      if (current_user != @blog.user) and (@blog.global == false)
+        redirect_to({ action: "index" }, notice: "You don't have sufficient permissions")
+
+      end
+    end
+
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
       @blog = Blog.find(params[:id])
