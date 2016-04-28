@@ -9,3 +9,4 @@
 9. Allow for upload of blog images and display a default if they don't exist [Done]
 10. When accessing a blog, private blogs should not be viewable by others when they navigate by changing URLS. [Done]
 11. Scaffold Expense object with properties amount, description, datetime, comment, tags.
+12. Write a couple of tests for the blog app.
