@@ -1,6 +1,24 @@
 require 'test_helper'
+require 'mocha/setup'
+require 'mocha/test_unit'
 
 class CategoriesControllerTest < ActionController::TestCase
+  setup do
+    @blog = blogs(:one)
+    @admin = User.new
+    @admin.username = "batman"
+    @admin.password = "batman"
+    @admin.save
+
+    #stub out the current_user which is used to determine if one is logged in
+    ApplicationController.any_instance.stubs(:current_user).returns(@admin)
+
+
+    # get a category object
+    @category = categories(:one)
+
+  end
+
   test "should get new" do
     get :new
     assert_response :success
@@ -17,7 +35,7 @@ class CategoriesControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit
+    get :edit, id: @category
     assert_response :success
   end
 
