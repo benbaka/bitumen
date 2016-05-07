@@ -9,7 +9,17 @@ class BlogsControllerTest < ActionController::TestCase
     @admin.username = "batman"
     @admin.password = "batman"
     @admin.save
+
+    #stub out the current_user which is used to determine if one is logged in
     ApplicationController.any_instance.stubs(:current_user).returns(@admin)
+
+    # associate the blog with the user
+    @blog.user = @admin
+
+    # associate blog with category
+    @category = categories(:one)
+    @blog.category = @category
+    @blog.save
 
   end
 
