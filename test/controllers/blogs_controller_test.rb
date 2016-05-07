@@ -1,11 +1,21 @@
 require 'test_helper'
+require 'mocha/setup'
+require 'mocha/test_unit'
 
 class BlogsControllerTest < ActionController::TestCase
   setup do
     @blog = blogs(:one)
+    @admin = User.new
+    @admin.username = "batman"
+    @admin.password = "batman"
+    @admin.save
+    ApplicationController.any_instance.stubs(:current_user).returns(@admin)
+
   end
 
+
   test "should get index" do
+
     get :index
     assert_response :success
     assert_not_nil assigns(:blogs)
