@@ -56,6 +56,9 @@ end
 group :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'mocha', '~> 1.1.0', :require => false
+  gem 'rspec-rails', '~> 3.4.2'
+
 
   # Access an IRB console on exception pages or by using <%= console %> in views
 
