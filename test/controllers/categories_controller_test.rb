@@ -48,7 +48,7 @@ class CategoriesControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    get :show
+    get :show, id: @category
     assert_response :success
   end
 
