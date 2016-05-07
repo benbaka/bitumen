@@ -29,9 +29,12 @@ class CategoriesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get destroy" do
-    get :destroy
-    assert_response :success
+  test "should destroy category" do
+    delete :destroy, id:@category
+    assert_response :redirect
+    assert_raises ActiveRecord::RecordNotFound do
+      Category.find(@category.id)
+    end
   end
 
   test "should get edit" do
