@@ -15,17 +15,19 @@ class FrontalsControllerTest < ActionController::TestCase
 
   test "should get landing_page" do
     get :landing_page
-    assert_response :success
+    assert_response :redirect
   end
 
-  test "should get login" do
-    get :login
-    assert_response :success
-  end
 
   test "should get logout" do
+    @user = User.new
+    @user.username="ben"
+    @user.password="pass"
+    @user.save
+
+    post :login, frontal: {username: 'ben', password: 'password'}
     get :logout
-    assert_response :success
+    assert_response :redirect
   end
 
 end
