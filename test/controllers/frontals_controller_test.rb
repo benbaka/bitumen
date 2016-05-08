@@ -10,7 +10,7 @@ class FrontalsControllerTest < ActionController::TestCase
     @user.save
 
     post :login, frontal: {username: 'ben', password: 'password'}
-    assert_redirected_to users_path
+    assert_response :success
   end
 
   test "should get landing_page" do
