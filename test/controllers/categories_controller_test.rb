@@ -25,8 +25,9 @@ class CategoriesControllerTest < ActionController::TestCase
   end
 
   test "should get create" do
-    get :create
-    assert_response :success
+    post :create,category: { name: "Friends" }
+    assert_response :redirect
+    assert_equal Category.where(name: "Friends").size, 1
   end
 
   test "should destroy category" do
