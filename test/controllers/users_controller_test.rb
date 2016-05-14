@@ -1,8 +1,17 @@
 require 'test_helper'
+require 'mocha/setup'
+require 'mocha/test_unit'
 
 class UsersControllerTest < ActionController::TestCase
   setup do
-    @user = users(:one)
+    @user = User.new
+    @user.username = "batman"
+    @user.password = "batman"
+    @user.save
+
+    #stub out the current_user which is used to determine if one is logged in
+    ApplicationController.any_instance.stubs(:current_user).returns(@user)
+
   end
 
   test "should get index" do
@@ -16,8 +25,8 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create user" do
-    assert_difference('User.count') do
+  test "should not create user twice" do
+    assert_no_difference('User.count') do
       post :create, user: { email_address: @user.email_address, password: @user.password, username: @user.username }
     end
 
