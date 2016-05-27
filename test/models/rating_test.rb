@@ -33,7 +33,7 @@ class RatingTest < ActiveSupport::TestCase
     blog = Blog.new({:title=>"the me blog"})
     blog.save
 
-    user = User.new({:username=>"ben"})
+    user = User.new({:username=>"ben10", :password=>'password'})
     user.save
 
     rating = Rating.new({:user_id=>user.id})
@@ -50,7 +50,6 @@ class RatingTest < ActiveSupport::TestCase
     #assert_equal false, blog.ratings << rating
     assert_equal 1, blog.ratings.size
     assert_equal 1, Rating.all.size
-    byebug
 
 
   end
